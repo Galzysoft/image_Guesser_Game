@@ -31,6 +31,9 @@ class _GameState extends State<Game> {
                         Navigator.pop(context,false);
                       },
                       child: Text("No"))
+                  //    Navigator.popUntil(context, ModalRoute.withName('/login'));
+                  //    Navigator.pushNamedAndRemoveUntil(context, '/calendar', ModalRoute.withName('/'));
+
                 ],
               );
             });

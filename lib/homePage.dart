@@ -9,23 +9,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool canshow=true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("HomePage")),
       body: Center(
-          child: Column(
+          child:canshow==true? Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Game(),
-                  ));
+              // Navigator.push(context, MaterialPageRoute(builder: (context) => Game(name: "ada",age: "obi"),));
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //       builder: (context) => Game(name: "ada"),
+              //     ));
             },
-            child: Text("Navigate .push"),
+            child: Text(canshow?"ewoooo":"Navigate .push"),
           ),
           ElevatedButton(
             onPressed: () {
@@ -39,12 +41,16 @@ class _HomePageState extends State<HomePage> {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, "/game",arguments: ["ben","obi"],);
+              Map <String,dynamic>  passed_values={"name":"obi","age":"15"};
+              Navigator.pushNamed(context, "/game",arguments:passed_values );
+              // Navigator.pushNamed(context, "/game",arguments: ["ben","obi"],);
             },
-            child: Text("Navigate .pushNaED"),
+            child: Text("Navigate .pushNamed"),
           ),
+        //    Navigator.popUntil(context, ModalRoute.withName('/login'));
+        //    Navigator.pushNamedAndRemoveUntil(context, '/calendar', ModalRoute.withName('/'));
         ],
-      )),
+      ):Text("omor e don cast")),
     );
   }
 }
